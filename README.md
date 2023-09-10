@@ -2,7 +2,7 @@
 
 ## これは何？
 
-mp3ファイルの音声をVOSK/Kaldiで文字起こしし、OpenAI APIにて文字起こしした文章を生成するプログラムです。
+mp3ファイル内の音声をVOSK/Kaldiを用いて文字起こしを行い、その後OpenAI APIを使って文章を整形するツールです。
 
 ## 準備
 
@@ -12,13 +12,13 @@ mp3ファイルの音声をVOSK/Kaldiで文字起こしし、OpenAI APIにて文
     sudo apt -y install ffmpeg
     ```
 
-- 依存パッケージインストール
+- 必要な依存パッケージのインストール
 
     ```bash
     pip install vosk pydub openai
     ```
 
-- モデルのダウンロード
+- モデルのダウンロードと展開
 
     ```bash
     wget https://alphacephei.com/vosk/models/vosk-model-ja-0.22.zip
@@ -34,6 +34,6 @@ python3 mp3transcriber.py <mp3file>
 
 ## ToDo
 
-尺の長い音声の場合、文字起こし量が多くなり、ChatGPTでの整形でToken数オーバーが発生する。
+長い音声に関しては、文字起こし結果のテキスト量が多くなるため、ChatGPTを使用する際にトークン数オーバーが発生する場合がある。
 
-LangChainのRecursiveCharacterTextSplitterなどを使用して、適当なサイズに文字起こしテキストを分割したあとに、個別に整形する必要がある。
+LangChainのRecursiveCharacterTextSplitterなどを活用して、適切なサイズにテキストを分割した上で、それぞれを整形する必要がある。
