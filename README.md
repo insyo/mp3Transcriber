@@ -29,6 +29,7 @@ mp3ファイル内の音声をVOSK/Kaldiを用いて文字起こしを行い、�
 ## 使い方
 
 ```bash
+export OPENAI_API_KEY=your api key
 python3 mp3transcriber.py <mp3file>
 ```
 
